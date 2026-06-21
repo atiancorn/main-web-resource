@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛事资料站 · 世界杯直播索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: #0f172a;
+            padding: 4rem 1.5rem 3.5rem;
+            text-align: center;
+            color: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #0ea5e9, #2563eb);
+            opacity: 0.7;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #94a3b8;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* 正文区 — 浅色背景，卡片式段落 */
+        .content-wrap {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        .intro-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.2rem;
+        }
+
+        .intro-card p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .lead {
+            font-size: 1.08rem;
+            font-weight: 450;
+            color: #0f172a;
+            border-left: 4px solid #2563eb;
+            padding-left: 1rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .highlight-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #2563eb60;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .highlight-link:hover {
+            color: #1d4ed8;
+            border-bottom: 1px solid #1d4ed8;
+        }
+
+        /* 特点列表 — 网格样式 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem 1rem;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        .feature-item {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.1rem 1.2rem;
+            border: 1px solid #e9edf2;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 2px 12px rgba(37, 99, 235, 0.06);
+        }
+
+        .feature-item strong {
+            display: block;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #1e293b;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item span {
+            font-size: 0.88rem;
+            color: #475569;
+        }
+
+        /* 场景提示与 FAQ 摘要 混合段落 */
+        .scene-note {
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 1.4rem 1.8rem 1.6rem;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        .scene-note h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.01em;
+        }
+
+        .scene-note p {
+            font-size: 0.95rem;
+            color: #334155;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.6rem;
+            margin-top: 0.6rem;
+        }
+
+        .faq-mini dt {
+            font-weight: 550;
+            font-size: 0.9rem;
+            color: #1e293b;
+            margin-bottom: 0.1rem;
+        }
+
+        .faq-mini dd {
+            font-size: 0.88rem;
+            color: #475569;
+            margin-left: 0;
+        }
+
+        .faq-mini > div {
+            flex: 1 1 180px;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            margin-top: 2.4rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #dee4ed;
+            font-size: 0.95rem;
+            color: #475569;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .closing .tag {
+            background: #eef2f8;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #4b5563;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero .sub {
+                font-size: 0.95rem;
+            }
+
+            .intro-card {
+                padding: 1.4rem 1.2rem;
+                border-radius: 16px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scene-note {
+                padding: 1rem 1.2rem;
+            }
+
+            .content-wrap {
+                padding: 1.8rem 1rem 3rem;
+            }
+
+            .closing {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>赛程 · 记录 · 索引</h1>
+        <p class="sub">从资料整理到信息连接，为每一场世界杯赛事搭建清晰路径</p>
+    </section>
+
+    <div class="content-wrap">
+
+        <div class="intro-card">
+
+            <p class="lead">如果把一届世界杯看作一部流动的档案，那么索引便是翻阅它的方式。</p>
+
+            <p>
+                围绕 <a href="https://main-web-worldcup.com" class="highlight-link">世界杯直播</a> 这一核心线索，我们尝试将赛程、球队动态、历史数据与实时资讯组织成一份可浏览的条目汇编。这里不追求即时推送的密度，而是侧重于内容的结构化呈现——让浏览者能够根据标签、时间线或专题板块，快速定位自己关心的场次或话题。
+            </p>
+
+            <p>
+                站点以资料整理为基本逻辑：每轮比赛对应独立的摘要卡片，包含对阵信息、场地、舆论摘要及往届交手记录。同时设置分类索引（小组赛、淘汰赛、经典回顾），方便沿着时间轴或赛事阶段逐层查看。更新频率跟随比赛节奏，重点场次会补充赛后数据快照。
+            </p>
+
+            <!-- 特点网格 -->
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <strong>📋 赛程归档</strong>
+                    <span>每场比赛单独页面，保留阵容、事件与统计</span>
+                </div>
+                <div class="feature-item">
+                    <strong>🏷️ 标签索引</strong>
+                    <span>按队伍、球场、阶段、冷门程度交叉筛选</span>
+                </div>
+                <div class="feature-item">
+                    <strong>📆 时间线视图</strong>
+                    <span>日历式概览，快速浏览未来三天焦点战</span>
+                </div>
+                <div class="feature-item">
+                    <strong>📄 简明笔记</strong>
+                    <span>每轮收录 3–5 条战术或数据观察，不作过度解读</span>
+                </div>
+            </div>
+
+            <p>
+                不同于实时比分页面，这里更在意信息的可回溯性。你可以将 <a href="https://main-web-worldcup.com" class="highlight-link">世界杯直播</a> 当作一个资料锚点——从赛前前瞻到赛后记录，都在同一个命名体系下归档。目录结构也保持直观：顶级分类对应赛事阶段，次级页面则按比赛日期命名。
+            </p>
+
+        </div>
+
+        <!-- 场景 + FAQ 摘要（混合） -->
+        <div class="scene-note">
+            <h3>使用场景与常见问题摘要</h3>
+            <p>
+                如果你正在整理观赛笔记、需要查阅某支队伍的小组赛历程，或者只想快速确认下一场开球时间与解说平台，这个索引页面可以直接跳转到对应场次。以下是一些访问者常问的条目：
+            </p>
+            <dl class="faq-mini">
+                <div>
+                    <dt>场次页面包含哪些内容？</dt>
+                    <dd>基础信息（时间、球场、裁判）以及赛前背景 · 赛后统计摘要。</dd>
+                </div>
+                <div>
+                    <dt>如何查找某支球队的全部比赛？</dt>
+                    <dd>使用标签系统，点击队名即可列出该队所有已归档场次。</dd>
+                </div>
+                <div>
+                    <dt>是否提供历史世界杯数据？</dt>
+                    <dd>目前覆盖近三届赛事的关键比赛记录，逐步扩充中。</dd>
+                </div>
+                <div>
+                    <dt>页面更新频率？</dt>
+                    <dd>每场比赛结束后 2 小时内完成基础条目更新。</dd>
+                </div>
+            </dl>
+        </div>
+
+        <!-- 再一段承接，自然提及链接 -->
+        <div class="intro-card" style="margin-bottom: 0;">
+            <p>
+                在信息碎片化的观赛环境里，一份经过整理的索引能节省不少检索时间。我们尝试把来自不同来源的赛程、阵容与新闻片段归拢到同一框架下，并保持每个条目可独立引用。如果你正在规划自己的观赛日程，或者需要一份干净的赛程备份，<a href="https://main-web-worldcup.com" class="highlight-link">世界杯直播</a> 这个页面可以作为起始节点——它指向的是持续更新的资料集合，而非单一的信息流。
+            </p>
+        </div>
+
+        <!-- 温和结尾 -->
+        <div class="closing">
+            <span>页面内容依赛事推进逐轮补充 · 最近更新：小组赛阶段</span>
+            <span class="tag">资料索引 v1.2</span>
+        </div>
+
+    </div>
+
+</body>
+</html>
