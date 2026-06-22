@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星空体育 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background: #f5f6f8;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 24px 20px;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            padding: 14px 28px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e9ecf0;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #2b4f80;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 0.3px;
+            color: #1e2a3a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3c4f66;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2b4f80;
+            border-bottom-color: #2b4f80;
+        }
+
+        .nav-cta {
+            background: #2b4f80;
+            color: white !important;
+            padding: 6px 18px !important;
+            border-radius: 30px;
+            border-bottom: none !important;
+            font-weight: 500;
+        }
+
+        .nav-cta:hover {
+            background: #1f3d63;
+            color: white !important;
+        }
+
+        /* 英雄区域 */
+        .hero {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 48px 40px;
+            border: 1px solid #e2e6ec;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #141d29;
+            letter-spacing: -0.3px;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #3d4d61;
+            max-width: 720px;
+            margin-bottom: 18px;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #eef2f7;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #2b4f80;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        /* 卡片分区 */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 40px 0 20px 0;
+            color: #1e2a3a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title span {
+            background: #dce3ed;
+            width: 6px;
+            height: 26px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 28px 24px;
+            border: 1px solid #e3e7ed;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a2637;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #455568;
+            margin-bottom: 6px;
+        }
+
+        .card .icon-emoji {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* 常见说明 (类似FAQ摘要) */
+        .faq-section {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 32px 28px;
+            border: 1px solid #e3e7ed;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            margin: 40px 0 32px 0;
+        }
+
+        .faq-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            font-weight: 600;
+            color: #1a2637;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            color: #46586e;
+            font-size: 0.95rem;
+        }
+
+        .faq-item a {
+            color: #2b4f80;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .faq-item a:hover {
+            color: #173a5e;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            border-top: 1px solid #dfe4ec;
+            padding: 28px 0 8px 0;
+            margin-top: 20px;
+            color: #6b7d94;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #2b4f80;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 16px 12px;
+            }
+
+            .hero {
+                padding: 32px 20px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .navbar {
+                padding: 12px 18px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 16px;
+                margin-top: 6px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-section {
+                padding: 24px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="logo-area">
+            <div class="logo-icon">★</div>
+            <span class="logo-text">星站</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro">站点</a></li>
+            <li><a href="#scenes">场景</a></li>
+            <li><a href="#faq">说明</a></li>
+            <li><a href="https://cn-cns-xksport.com" class="nav-cta">星空体育</a></li>
+        </ul>
+    </nav>
+
+    <!-- 英雄区 / 核心介绍 -->
+    <div class="hero" id="intro">
+        <h1>星空体育 · 从了解到信任</h1>
+        <p>
+            无论你是刚听说这个名字，还是想进一步确认它的背景，这个页面都希望能提供清晰、可靠的信息。
+            <a href="https://cn-cns-xksport.com" style="color:#2b4f80; text-decoration: underline;">星空体育</a>
+            是一个围绕体育内容展开的站点，它不追求夸张的口号，而是用实际的信息结构让访问者自己判断。
+        </p>
+        <p>
+            站点的整体风格偏向简洁和直接，没有多余的装饰。导航、分类、内容呈现都尽量做到一目了然。
+            如果你对体育资讯、赛事动态或相关服务感兴趣，可以花几分钟浏览，看看是否符合你的需求。
+        </p>
+        <div class="tagline">✦ 站点定位 · 信息透明 · 日常可读</div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="section-title" id="scenes"><span></span> 三个常见使用场景</div>
+    <div class="card-grid">
+        <div class="card">
+            <span class="icon-emoji">📋</span>
+            <h3>快速了解内容框架</h3>
+            <p>
+                第一次访问时，大多数人会先浏览首页的板块分布。
+                星空体育的栏目划分比较清晰，你可以通过顶部导航或首页卡片大致知道站点覆盖哪些内容，
+                而不需要层层点击才能找到方向。
+            </p>
+        </div>
+        <div class="card">
+            <span class="icon-emoji">🔍</span>
+            <h3>查找特定体育信息</h3>
+            <p>
+                如果你带着明确的目的来，比如想了解某类赛事或阅读相关文章，
+                站内通常有分类入口和搜索功能。信息组织方式偏实用，不会让你在无关页面里绕路。
+                这也是许多用户反复回访的原因之一。
+            </p>
+        </div>
+        <div class="card">
+            <span class="icon-emoji">🧭</span>
+            <h3>确认站点的可信度</h3>
+            <p>
+                如今判断一个网站是否靠谱，除了看内容质量，也要看它的呈现方式。
+                星空体育没有使用诱导性弹窗或模糊表述，页面结构稳定，联系方式与相关说明也都在常规位置。
+                你可以通过浏览几个页面形成自己的判断。
+            </p>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <div class="faq-section" id="faq">
+        <h2><span style="background: #dce3ed; width:6px; height:26px; border-radius:6px; display:inline-block;"></span> 常见说明 · 摘要</h2>
+
+        <div class="faq-item">
+            <strong>这个网站主要提供什么？</strong>
+            <p>星空体育是一个以体育信息为核心的站点，涵盖赛事资讯、内容阅读以及相关服务指引。
+            具体内容可以通过首页导航进一步探索。任何细节以站点实际展示为准。</p>
+        </div>
+
+        <div class="faq-item">
+            <strong>信息更新频率如何？</strong>
+            <p>站点的内容会根据体育赛事周期和运营节奏进行更新。如果你关注某个特定领域，
+            建议定期回访或留意站内相关板块的标注。我们不做无法兑现的“每日更新”承诺。</p>
+        </div>
+
+        <div class="faq-item">
+            <strong>访问时需要注意什么？</strong>
+            <p>请确保你处于合法使用互联网的环境。星空体育不会要求你提供不必要的个人信息，
+            也不会主动推送诱导链接。如果在浏览中遇到任何异常，可以通过站点提供的联系渠道反馈。
+            想直接浏览站点，可前往 <a href="https://cn-cns-xksport.com">星空体育</a>。</p>
+        </div>
+
+        <div class="faq-item">
+            <strong>与其他体育网站有何不同？</strong>
+            <p>每个站点都有自己的组织方式和侧重点。星空体育更注重信息结构的清晰度与页面的克制感，
+            没有大量弹窗或分散注意力的广告。当然，具体体验还是建议你亲自感受。</p>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>本介绍页仅用于信息说明 · 内容客观克制 · 所有链接均指向 <a href="https://cn-cns-xksport.com">星空体育</a></p>
+        <p style="margin-top: 6px; opacity: 0.6;">© 2025 · 站点导航页 · 非官方声明</p>
+    </div>
+</div>
+</body>
+</html>
